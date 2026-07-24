@@ -1,0 +1,1 @@
+{"clineVersion":"4.0.6","hookName":"PostToolUse","postToolUse":{"toolName":"replace_in_file","parameters":{"path":"tests/fixtures/sample.py","diff":"------- SEARCH\nx\n=======\npath = \"C:\\\\temp\"\n+++++++ REPLACE"},"result":"<final_file_content>broken \" quotes in result field make this invalid json","success":true}}

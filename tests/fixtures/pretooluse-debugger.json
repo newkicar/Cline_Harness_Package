@@ -1,0 +1,11 @@
+{
+    "clineVersion": "4.0.6",
+    "hookName": "PreToolUse",
+    "preToolUse": {
+        "toolName": "write_to_file",
+        "parameters": {
+            "path": "src/app.js",
+            "content": "function processData(items) {\n    debugger;\n    return items.map(item => item.value);\n}\n"
+        }
+    }
+}

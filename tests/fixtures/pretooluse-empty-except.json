@@ -1,0 +1,11 @@
+{
+    "clineVersion": "4.0.6",
+    "hookName": "PreToolUse",
+    "preToolUse": {
+        "toolName": "write_to_file",
+        "parameters": {
+            "path": "src/utils.py",
+            "content": "import os\n\ndef read_config(path):\n    try:\n        with open(path) as f:\n            return f.read()\n    except:\n        pass\n"
+        }
+    }
+}
