@@ -1,1 +1,0 @@
-{"clineVersion":"4.0.6","hookName":"PreToolUse","preToolUse":{"toolName":"write_to_file","parameters":{"path":"tests/fixtures/sample.py","content":"# -*- coding: utf-8 -*-\n\"\"\"Sample module.\"\"\"\nimport os\n\nDB_HOST = os.getenv(\"DB_HOST\", \"localhost\")\n"}}}

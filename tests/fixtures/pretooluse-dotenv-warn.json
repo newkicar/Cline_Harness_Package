@@ -1,1 +1,0 @@
-{"clineVersion":"4.0.6","hookName":"PreToolUse","preToolUse":{"toolName":"read_file","parameters":{"path":".env"}}}

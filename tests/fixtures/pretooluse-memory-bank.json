@@ -1,1 +1,0 @@
-{"clineVersion":"4.0.6","hookName":"PreToolUse","preToolUse":{"toolName":"replace_in_file","parameters":{"path":".clinerules/memory/progress.md","diff":"------- SEARCH\nold content\n=======\nnew content\n+++++++ REPLACE"}}}
