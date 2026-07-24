@@ -10,15 +10,7 @@
 
 ### 1. Deployment
 
-**Method A: One-Click Script (Recommended)**
-
-```powershell
-# Execute in Harness package directory (PowerShell terminal)
-powershell -NoProfile -ExecutionPolicy Bypass -File .\deploy.ps1 -TargetDir D:\Projects\my-app -L2 deepagents,pytorch
-# If ExecutionPolicy allows: .\deploy.ps1 -TargetDir ... -L2 ...
-```
-
-**Method B: Manual Copy**
+**Manual Copy (Recommended)**
 
 Copy the following directories/files to the **target project root**:
 
@@ -34,7 +26,13 @@ Copy the following directories/files to the **target project root**:
 
 **L2 Domain Rules (Enable on Demand)**
 
-L2 files are in `.clinerules/l2/`, **not loaded by default**. Enable by project type:
+L2 files are in `.clinerules/l2/`, **not loaded by default**. Copy the appropriate file to `.clinerules/` root to enable:
+
+| Project Type | Enable L2 |
+| ------------ | --------- |
+| Agent / DeepAgents | Copy `l2/02-deepagents-code-rule.md` → `.clinerules/` |
+| PyTorch / Deep Learning | Copy `l2/03-pytorch-code-rule.md` → `.clinerules/` |
+| Regular project | Do not enable L2 |
 
 **Extension Workflows**
 
@@ -42,17 +40,11 @@ All 13 workflows (including 9 extension workflows) are deployed by default. AI a
 
 > **Note**: `-Extras` parameter is deprecated. Extension workflows are already included in the default `.clinerules/workflows/` deployment.
 
-| Project Type | Command |
-| ------------ | ------- |
-| Agent / DeepAgents | `deploy.ps1 -L2 deepagents` |
-| PyTorch / Deep Learning | `deploy.ps1 -L2 pytorch` |
-
 > **Windows Tip**: Cline Hooks only support `.ps1` (e.g., `PreToolUse.ps1`). Deploy/self-check scripts are also `.ps1`; run them in **PowerShell terminal** with `-File`; do not double-click `.ps1` (may open in Notepad).
 
 After deployment:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\setup-cline.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File .\verify-harness.ps1
 ```
 
@@ -100,15 +92,13 @@ Checks include: L1/L2 core files, PowerShell syntax, Rule ID consistency, Hook r
 
 ### 5. Select L2 Domain Rules
 
-L2 files are stored in `.clinerules/l2/`, **not loaded by default**. During deployment, `deploy.ps1` scans project features and suggests enabling commands. You can also enable manually:
+L2 files are stored in `.clinerules/l2/`, **not loaded by default**. Copy the appropriate file to `.clinerules/` root to enable:
 
 | Your Project Feature | Enable L2 |
 | -------------------- | --------- |
-| Agent / `create_deep_agent()` | `-L2 deepagents` |
-| PyTorch / `import torch` | `-L2 pytorch` |
+| Agent / `create_deep_agent()` | Copy `l2/02-deepagents-code-rule.md` |
+| PyTorch / `import torch` | Copy `l2/03-pytorch-code-rule.md` |
 | Regular project | Do not enable L2 |
-
-> **Tip**: `deploy.ps1` scans the target project for features like `import torch`, `create_deep_agent(` and outputs enablement suggestions. You can skip auto-detection and run `deploy.ps1 -L2 deepagents,pytorch` manually.
 
 ### 6. Choose Workflow (by Task Type)
 
@@ -134,31 +124,15 @@ L2 files are stored in `.clinerules/l2/`, **not loaded by default**. During depl
 | PyTorch experiment | `dl-experiment-workflow` |
 | Large feature from scratch | `speckit/` series (requires `.specify/extensions.yml` or say "Use speckit workflow") |
 
-### 7. Test Suite
+### 7. Verify Harness
 
-Harness includes a complete testing suite to ensure rule changes don't introduce regressions:
-
-```
-tests/
-├── test-hooks.ps1              # PostToolUse Hook regression test
-├── test-pretooluse.ps1         # PreToolUse Hook regression test
-└── fixtures/
-    ├── pretooluse-debugger.json     # Tests debugger statement interception
-    ├── pretooluse-empty-except.json # Tests empty except interception
-    ├── pretooluse-sql-inject.json   # Tests SQL injection interception
-    └── pretooluse-suspicious-class.json # Tests suspicious abstraction warning
-```
-
-Running:
+Run `verify-harness.ps1` after deployment to verify Harness package integrity:
 
 ```powershell
-# Run all tests (incl. verify-harness)
 powershell -NoProfile -ExecutionPolicy Bypass -File .\verify-harness.ps1
-
-# Run Hook tests only
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\test-hooks.ps1
-powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\test-pretooluse.ps1
 ```
+
+Checks include: L1/L2 core files, PowerShell syntax, Rule ID consistency.
 
 ---
 
@@ -364,15 +338,12 @@ Project Root/
 │       ├── user-acceptance-walkthrough.md
 │       └── speckit/
 ├── .agents/skills/
+├── .specify/                        # Speckit toolkit (optional)
 ├── harness.config.json
 ├── CHANGELOG.md
 ├── README-EN.md
 ├── README.md
-├── deploy.ps1
 ├── verify-harness.ps1
-├── setup-cline.ps1
-├── scripts_cline_harness/regenerate-manifest.ps1
-├── tests/test-hooks.ps1
 ├── cline-desktop-settings.json
 ├── memory/
 ├── specs/

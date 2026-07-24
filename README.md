@@ -25,6 +25,21 @@
 - **Hooks**：PreToolUse.ps1（写文件前拦截）、PostToolUse.ps1（写文件后审计）
 - **L3 工作流**：按任务类型选择工作流（详见 `.clinerules/workflows/INDEX.md`）
 
+### 4. `.specify/` 目录说明
+
+`.specify/` 是 Speckit 需求驱动开发工具链，**按需使用**：
+
+| 场景 | 是否需要 `.specify/` | 说明 |
+|------|---------------------|------|
+| 日常 bug 修复、小改动 | 不需要 | 直接用 `bugfix-workflow.md` |
+| 新功能开发（简单） | 不需要 | 直接用 `new-feature-workflow.md` |
+| 大型功能、多模块、需要完整需求→计划→实施流程 | **需要** | 使用 speckit 工作流：`speckit-specify` → `speckit-plan` → `speckit-implement` |
+| 需要项目宪法、架构决策追溯 | **需要** | speckit 提供完整的文档体系 |
+
+**启用方式**：在项目根目录创建 `.specify/extensions.yml`，或在对话中说「用 speckit 流程」。
+
+**不用 speckit 时**：`.specify/` 目录可忽略，不影响核心规则和工作流的使用。
+
 ### 4. 学习资料
 
 - [Harness 编程教程](harness_coding_tutor.md) - 658 行"道法术器"方法论指南

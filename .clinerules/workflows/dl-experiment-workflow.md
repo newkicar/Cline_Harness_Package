@@ -1,6 +1,6 @@
 # DL Experiment Workflow（深度学习实验）
 
-> **PyTorch / 深度学习项目专用**。需已通过 `deploy.ps1 -L2 pytorch` 启用 `03-pytorch-code-rule.md`。
+> **PyTorch / 深度学习项目专用**。需已将 `03-pytorch-code-rule.md` 复制到 `.clinerules/` 根目录。
 > 小改动（改 lr、修 bug）仍可用 `bugfix-workflow.md`。
 
 ---

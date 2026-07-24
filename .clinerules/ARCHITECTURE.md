@@ -79,7 +79,7 @@ Harness 体系
 
 ### 核心工作流（★ 必装）
 
-覆盖 90% 的日常开发场景。`deploy.ps1` 默认复制这些文件。
+覆盖 90% 的日常开发场景。将 `.clinerules/workflows/` 下的所有工作流复制到项目即可使用。
 
 | 工作流 | 适用场景 | 何时触发 |
 |--------|---------|---------|
@@ -109,8 +109,9 @@ Harness 体系
 ### 分级管理
 
 ```
-deploy.ps1（默认）  → 复制全部 13 个工作流
-deploy.ps1 -L2 deepagents  → 同时启用 L2 领域规则
+复制 .clinerules/workflows/*   → 启用全部工作流（默认）
+复制 l2/02-deepagents-code-rule.md → .clinerules/  → 启用 Agent 领域规则
+复制 l2/03-pytorch-code-rule.md → .clinerules/     → 启用 PyTorch 领域规则
 ```
 
 ### 引用关系（双向，非单向链）
@@ -122,7 +123,7 @@ L1 (核心规则)
   ├── 被 L3 引用：交付清单 §5
   └── 被 hooks/ 执行：PreToolUse/PostToolUse 将 L1 规则机械化为可执行检查
 
-L2 (领域规则) — 通过 deploy.ps1 -L2 或手动复制 l2/ 文件到 .clinerules/ 根目录后激活
+L2 (领域规则) — 手动复制 l2/ 文件到 .clinerules/ 根目录后激活
   │
   ├── 引用 L1（安全红线、泛化原则、正则禁用）
   └── 被 L3 中的特定 workflow 引用（如 dl-experiment 引用 03-pytorch）

@@ -1,6 +1,6 @@
 # DeepAgents 编码规则（精简版）
 
-> **Agent 项目专用**。默认存放在 `.clinerules/l2/`，**不会**被 Cline 自动加载。使用 `deploy.ps1 -L2 deepagents` 复制到 `.clinerules/` 根目录后生效。
+> **Agent 项目专用**。默认存放在 `.clinerules/l2/`，**不会**被 Cline 自动加载。手动复制 `02-deepagents-code-rule.md` 到 `.clinerules/` 根目录后生效。
 > 平台特化（子代理/解释器/Windows/PTC/Rubric）见 `.agents/skills/deepagents-advanced/SKILL.md`，按需激活。
 > 安全、泛化、正则边界见 `.clinerules/00-core.md`（单一真理源）。
 > 最后更新：2026-06-26 | 基于 DeepAgents v3.0 最佳实践指南

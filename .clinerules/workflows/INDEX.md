@@ -6,12 +6,12 @@
 
 ## 第一步：判断项目类型（L2 领域规则）
 
-> L2 存放在 `.clinerules/l2/`，**默认不加载**。通过 `deploy.ps1 -L2` 复制到 `.clinerules/` 根目录后生效。
+> L2 存放在 `.clinerules/l2/`，**默认不加载**。需要时手动复制到 `.clinerules/` 根目录后生效。
 
 | 项目特征 | 启用方式 |
 |---------|---------|
-| Agent / `create_deep_agent()` | `deploy.ps1 -L2 deepagents` → `02-deepagents-code-rule.md` |
-| PyTorch / `import torch` | `deploy.ps1 -L2 pytorch` → `03-pytorch-code-rule.md` |
+| Agent / `create_deep_agent()` | 手动复制 `l2/02-deepagents-code-rule.md` → `.clinerules/` 根目录 |
+| PyTorch / `import torch` | 手动复制 `l2/03-pytorch-code-rule.md` → `.clinerules/` 根目录 |
 | 普通项目 | 不启用 L2 |
 
 ## 第二步：判断任务类型
@@ -83,8 +83,8 @@ speckit-converge.md   → 收敛完成
   ├─ 用户说「用 speckit」或有 .specify/extensions.yml？
   │   └─ YES → 使用 speckit/ 系列 workflow
   │
-  ├─ 项目含 create_deep_agent()？→ deploy -L2 deepagents
-  ├─ 项目含 import torch？→ deploy -L2 pytorch
+  ├─ 项目含 create_deep_agent()？→ 复制 l2/02-deepagents-code-rule.md
+  ├─ 项目含 import torch？→ 复制 l2/03-pytorch-code-rule.md
   │
   ├─ 项目跑不起来？→ baseline-startup
   ├─ 反复报错修不好？→ error-rescue

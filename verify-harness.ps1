@@ -59,11 +59,7 @@ Test-RequiredPath '.clinerules/l2/03-pytorch-code-rule.md' | Out-Null
 Write-Host ''
 Write-Host '[包工具]'
 Test-RequiredPath 'CHANGELOG.md' | Out-Null
-Test-RequiredPath 'deploy.ps1' | Out-Null
 Test-RequiredPath 'verify-harness.ps1' | Out-Null
-Test-RequiredPath 'setup-cline.ps1' | Out-Null
-Test-RequiredPath 'tests/test-hooks.ps1' | Out-Null
-Test-RequiredPath 'tests/test-pretooluse.ps1' | Out-Null
 Test-RequiredPath 'harness.config.json' | Out-Null
 Test-RequiredPath '.agents/skills' | Out-Null
 Test-RequiredPath 'memory/progress.md' | Out-Null

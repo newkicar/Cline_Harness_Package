@@ -1,6 +1,6 @@
 # PyTorch 深度学习编码规则（精简版）
 
-> **深度学习项目专用**。默认存放在 `.clinerules/l2/`，**不会**被 Cline 自动加载。使用 `deploy.ps1 -L2 pytorch` 复制到 `.clinerules/` 根目录后生效。
+> **深度学习项目专用**。默认存放在 `.clinerules/l2/`，**不会**被 Cline 自动加载。手动复制 `03-pytorch-code-rule.md` 到 `.clinerules/` 根目录后生效。
 > 进阶主题（分布式/AMP/Windows/CUDA/导出）见 `.agents/skills/pytorch-advanced/SKILL.md`，按需激活。
 > 安全、泛化、架构原则见 `.clinerules/00-core.md`（单一真理源）。
 > 最后更新：2026-06-22
