@@ -30,6 +30,16 @@
 - [Harness 编程教程](harness_coding_tutor.md) - 658 行"道法术器"方法论指南
 - [CHANGELOG](CHANGELOG.md) - 版本历史
 
+### 5. 自检（可选）
+
+部署后运行 `verify-harness.ps1` 验证 Harness 包完整性：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\verify-harness.ps1
+```
+
+**CI 自动检查**：推送到 GitHub 时，`.github/workflows/harness-ci.yml` 会自动运行验证。
+
 ## 日常使用
 
 | 操作 | 说明 |

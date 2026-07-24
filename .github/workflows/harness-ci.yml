@@ -1,0 +1,34 @@
+name: Harness CI
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - '.clinerules/**'
+      - '.agents/**'
+      - '.specify/**'
+      - 'harness.config.json'
+      - 'cline-desktop-settings.json'
+      - 'verify-harness.ps1'
+  pull_request:
+    branches: [master, main]
+    paths:
+      - '.clinerules/**'
+      - '.agents/**'
+      - '.specify/**'
+      - 'harness.config.json'
+      - 'cline-desktop-settings.json'
+      - 'verify-harness.ps1'
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Harness verification
+        shell: pwsh
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -File .\verify-harness.ps1
