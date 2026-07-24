@@ -14,6 +14,8 @@
 | Skills | `.agents/skills/` | 按需激活的技能（必选） |
 | Memory 模板 | `memory/` | 进度/阻塞/决策（必选） |
 | 需求/设计模板 | `specs/`, `design/` | L4 模板（必选） |
+| Speckit | `.specify/` | 需求驱动开发工具链（可选） |
+| Harness 配置 | `harness.config.json` | 版本和 L2 模块配置 |
 
 ### 2. 配置 Cline
 
